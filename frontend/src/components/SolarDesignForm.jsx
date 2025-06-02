@@ -8,6 +8,9 @@ function SolarDesignForm() {
   const [error, setError] = useState(null);
   const [design, setDesign] = useState(null);
 
+    // URL base del backend según entorno (desarrollo o producción)
+  const backendURL = import.meta.env.VITE_BACKEND_URL || "";
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -15,7 +18,7 @@ function SolarDesignForm() {
     setDesign(null);
 
     try {
-      const res = await fetch("/ai/design", {
+      const res = await fetch(`${backendURL}/ai/design`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ location, area, consumption }),
