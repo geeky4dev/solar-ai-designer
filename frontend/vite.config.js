@@ -1,12 +1,16 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
+  build: {
+    rollupOptions: {
+      external: ['nombre-del-modulo-a-excluir'], // ejemplo: ['fs', 'path']
+    }
+  },
   server: {
     proxy: {
-      '/ai': 'http://localhost:5000', // Flask runs on 5000
+      '/ai': 'http://localhost:5000',
     },
   },
 })
