@@ -50,9 +50,9 @@ npm run dev
 Open your browser at:
 👉 http://localhost:3000
 
-🎯 Usage
-🏡 Use the Solar Design Assistant form to generate solar system recommendations based on your location, area, and energy consumption.
-🤖 Chat with the AI assistant for solar tips and info.
+🎯 Usage:  
+🏡 Use the Solar Design Assistant form to generate solar system recommendations based on your location, area, and energy consumption.  
+🤖 Chat with the AI assistant for solar tips and info.  
 
 
 
@@ -79,11 +79,11 @@ solar-ai-designer/
 │   └── requirements.txt  
 └── README.md  
 
-🌟 Future Improvements:
-🔐 Add user authentication and save design history
-📚 Enhance AI with more solar-specific data
-🐳 Dockerize and deploy on cloud platforms
+🌟 Future Improvements:  
+🔐 Add user authentication and save design history  
+📚 Enhance AI with more solar-specific data  
+🐳 Dockerize and deploy on cloud platforms   
 
-📄 License
-MIT License — use freely, with attribution. Contributions welcome!
-Made by geeky4dev with ☀️ and ❤️ for solar energy enthusiasts!
+📄 License  
+MIT License — use freely, with attribution. Contributions welcome!  
+Made by geeky4dev with ☀️ and ❤️ for solar energy enthusiasts!  
