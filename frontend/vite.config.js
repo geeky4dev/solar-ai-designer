@@ -5,8 +5,8 @@ export default defineConfig({
   plugins: [react()],
   build: {
     rollupOptions: {
-      external: ['nombre-del-modulo-a-excluir'], // ejemplo: ['fs', 'path']
-    }
+      external: ['some-module'],  // aquí pones el nombre del módulo externo
+    },
   },
   server: {
     proxy: {
