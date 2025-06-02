@@ -36,14 +36,14 @@ A full-stack web app that helps users design rooftop solar panel systems using A
    git clone https://github.com/yourusername/solar-ai-designer.git
    cd solar-ai-designer
 
-Backend setup:
+Backend setup:  
 cd backend
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
 python app.py
 
-Frontend setup:
+Frontend setup:  
 cd ../frontend
 npm install
 npm run dev
@@ -60,21 +60,22 @@ Open your browser at:
 Endpoint	Method	Description
 /ai/chat	POST	Send chat messages to AI assistant
 /ai/design	POST	Generate solar design recommendations
-📁 Folder Structure
-solar-ai-designer/
-├── frontend/   # React frontend application
-│   ├── public/
-│   └── src/
-│       ├── components/
-│       │   ├── ChatBox.jsx
-│       │   └── DesignForm.jsx
-│       ├── App.jsx
-│       └── main.jsx
-├── backend/    # Flask backend code and AI integration
-│   ├── app.py
-│   ├── .env
-│   └── requirements.txt
-└── README.md
+
+📁 Folder Structure  
+solar-ai-designer/  
+├── frontend/   # React frontend application  
+│   ├── public/  
+│   └── src/  
+│       ├── components/  
+│       │   ├── ChatBox.jsx  
+│       │   └── DesignForm.jsx  
+│       ├── App.jsx  
+│       └── main.jsx  
+├── backend/    # Flask backend code and AI integration  
+│   ├── app.py  
+│   ├── .env  
+│   └── requirements.txt  
+└── README.md  
 
 🌟 Future Improvements:
 🔐 Add user authentication and save design history
