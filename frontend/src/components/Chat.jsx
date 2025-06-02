@@ -6,6 +6,9 @@ function Chat() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
+  // URL base del backend según entorno (desarrollo o producción)
+  const backendURL = import.meta.env.VITE_BACKEND_URL || "";
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -13,7 +16,7 @@ function Chat() {
     setResponse("");
 
     try {
-      const res = await fetch("/ai/chat", {
+      const res = await fetch(`${backendURL}/ai/chat`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message }),
@@ -22,7 +25,7 @@ function Chat() {
       if (!res.ok) throw new Error("Server error");
 
       const data = await res.json();
-      setResponse(data.response);  // <-- IMPORTANTE: usa data.response aquí
+      setResponse(data.response);
     } catch (err) {
       setError("Something went wrong.");
     } finally {
@@ -41,7 +44,7 @@ function Chat() {
           onChange={(e) => setMessage(e.target.value)}
           placeholder="Ask something about solar design..."
         />
-        <button className="btn btn-primary mt-2" disabled={loading}>
+        <button className="btn btn-primary mt-2" disabled={loading || !message.trim()}>
           {loading ? (
             <>
               <span className="spinner-border spinner-border-sm me-2" />
