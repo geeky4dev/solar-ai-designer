@@ -3,14 +3,14 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-//  build: {
-//    rollupOptions: {
-//      external: ['some-module'],  // aquí pones el nombre del módulo externo
-//    },
-//  },
   server: {
     proxy: {
-      '/ai': 'http://localhost:5000',
+      // Proxy solo en desarrollo para redirigir llamadas a /ai al backend local
+      '/ai': {
+        target: 'http://localhost:5000',
+        changeOrigin: true,
+        secure: false,
+      },
     },
   },
 })
