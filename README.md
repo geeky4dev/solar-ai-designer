@@ -19,9 +19,7 @@ A full-stack web app that helps users design rooftop solar panel systems using A
 | React (Vite) | Flask (Python) | Llama3 via Groq API  | REST API        |
 | Bootstrap    |                |                      |                 |
 
-Frontend    	Backend   	AI Integration              	Communication
-React (Vite)   	Flask (Python)   	Llama3 via Groq API  	REST API                
-Bootstrap  			
+		
 
 ---
 
