@@ -13,8 +13,7 @@ function Chat() {
     setResponse("");
 
     try {
-      const API_URL = import.meta.env.VITE_API_URL;
-      const res = await fetch(`${API_URL}/ai/chat`, {
+      const res = await fetch("/ai/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message }),
