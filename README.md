@@ -66,11 +66,13 @@ solar-ai-designer/
 ├── frontend/   # React frontend application  
 │   ├── public/  
 │   └── src/  
-│       ├── components/  
-│       │   ├── ChatBox.jsx  
-│       │   └── DesignForm.jsx  
-│       ├── App.jsx  
-│       └── main.jsx  
+│   │    ├── components/  
+│   │    │   ├── Chat.jsx  
+│   │    │   └── ChatBox.jsx  
+│   │    │   └── DesignForm.jsx  
+│   │    │   └── SolarDesignForm.jsx  
+│   │    ├── App.jsx  
+│   │    └── main.jsx  
 ├── backend/    # Flask backend code and AI integration  
 │   ├── app.py  
 │   ├── .env  
