@@ -1,1 +1,43 @@
-.env
+# ─── ENV Files ──────────────────────────────────────────────
+# Nunca subir archivos con variables sensibles
+**/.env
+**/.env.*
+
+# ─── Node ────────────────────────────────────────────────────
+node_modules/
+dist/
+dist-ssr/
+build/
+*.log
+*.local
+
+# ─── Logs ────────────────────────────────────────────────────
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# ─── Python ─────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+
+# Entornos virtuales
+venv/
+**/venv/
+backend/venv/
+
+# ─── IDEs / OS-specific ─────────────────────────────────────
+.vscode/
+!.vscode/extensions.json
+.idea/
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
