@@ -1,8 +1,10 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-import requests, os
+import requests
+import os
 from dotenv import load_dotenv
 
+# Cargar variables de entorno desde .env local (solo en desarrollo)
 load_dotenv()
 
 app = Flask(__name__)
@@ -16,17 +18,19 @@ def ping():
 def index():
     return jsonify({"message": "Welcome to the Solar AI Backend"}), 200
 
-GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 GROQ_API_URL = "https://api.groq.com/openai/v1/chat/completions"
 MODEL = "llama3-8b-8192"
 
-# --- Chatbot Route ---
 @app.route("/ai/chat", methods=["POST"])
 def chat():
+    api_key = os.getenv("GROQ_API_KEY")
+    if not api_key:
+        return jsonify({"error": "GROQ_API_KEY not set"}), 500
+
     user_msg = request.json.get("message", "")
 
     headers = {
-        "Authorization": f"Bearer {GROQ_API_KEY}",
+        "Authorization": f"Bearer {api_key}",
         "Content-Type": "application/json"
     }
 
@@ -47,9 +51,12 @@ def chat():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
-# --- Smart Design Route ---
 @app.route("/ai/design", methods=["POST"])
 def design():
+    api_key = os.getenv("GROQ_API_KEY")
+    if not api_key:
+        return jsonify({"error": "GROQ_API_KEY not set"}), 500
+
     data = request.json
     location = data.get("location", "")
     area = data.get("area", "")
@@ -67,7 +74,7 @@ def design():
     """
 
     headers = {
-        "Authorization": f"Bearer {GROQ_API_KEY}",
+        "Authorization": f"Bearer {api_key}",
         "Content-Type": "application/json"
     }
 
@@ -89,4 +96,7 @@ def design():
         return jsonify({"error": str(e)}), 500
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    # En producción Render requiere bindear a 0.0.0.0 y puerto PORT
+    app.run(host="0.0.0.0", port=port, debug=True)
+
